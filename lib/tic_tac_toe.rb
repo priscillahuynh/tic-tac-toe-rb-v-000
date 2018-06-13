@@ -86,3 +86,25 @@ def current_player(board)
   end
   return player
 end
+
+def full?(board)
+  board.all? {|index| index == "X" || index == "O"}
+end
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  end
+end
+
+def winner(board)
+  if win_combination = won?(board)
+    board[win_combination.first]
+  end
+end
