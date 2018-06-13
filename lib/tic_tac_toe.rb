@@ -108,3 +108,20 @@ def winner(board)
     board[win_combination.first]
   end
 end
+
+def won?(board)
+WIN_COMBINATIONS.find do |win_combination| # [0, 1, 2]
+  win_index_1 = win_combination[0] # 0
+  win_index_2 = win_combination[1] # 1
+  win_index_3 = win_combination[2] # 2
+
+  position_1 = board[win_index_1] # "X"
+  position_2 = board[win_index_2] # "X"
+  position_3 = board[win_index_3] # "X"
+
+  if position_1 == position_2 && position_2==position_3 && position_1!=" "
+    return win_combination
+  end
+end
+   false
+end
